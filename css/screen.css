@@ -1,0 +1,752 @@
+/* $Id: style.css,v 1.13 2006/04/03 22:20:48 unconed Exp $ */
+
+/*
+** HTML elements
+*/
+body {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  background-color: #fff;
+  font: 80% Verdana, Arial, Helvetica, sans-serif;
+}
+tr td {
+  padding: 0.3em;
+}
+img {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+h1, .page-title, h2, h3, h4, h5, h6 {
+  font-family: "Comic Sans MS", "Comic Sans", Fantasy;
+  text-decoration: underline;
+  color: #800000;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+  font-weight: bold;
+}
+h1, .page-title {
+  font-size: 2.2em;
+  text-align: center;
+  clear: both;
+}
+h2 {
+  font-size: 1.2em;
+}
+h3, h4, h5, h6 {
+  font-size: 1.1em;
+}
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.9em;
+}
+a {
+  text-decoration: none;
+}
+a:link {
+  color: #996475;
+}
+a:visited {
+  color: #996475;
+}
+a:hover {
+  color: #996475;
+  background-color: #f9f;
+}
+a:active {
+  color: #996475;
+}
+fieldset {
+  border: 1px solid #ccc;
+}
+pre {
+  background-color: #eee;
+  padding: 0.75em 1.5em;
+  font-size: 12px;
+  border: 1px solid #ddd;
+}
+table {
+  /* make <td> sizes relative to body size! */
+  font-size: 1em;
+}
+fieldset {
+  border: 1px solid #000080;
+}
+.form-item label {
+  font-size: 1em;
+  color: #222;
+}
+.item-list .title {
+  font-size: 1em;
+  color: #222;
+}
+.links {
+  margin-bottom: 0em;
+}
+.comment .links {
+  margin-bottom: 0em;
+}
+.content ol {
+  padding-left: 40px;
+}
+
+/*
+** Structural elements
+*/
+#wrapper {
+  background: url(../img/presentation/leftside.gif) repeat-y;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+#wrapper2 {
+  background: url(../img/presentation/riteside.gif) top right repeat-y;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+#top-border {
+  background: url(../img/presentation/top.gif) repeat-x;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#top-left-repeat-y {
+  background: url(../img/presentation/leftside.gif) repeat-y;
+  width: 45px;
+  height: 125px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+#top-left {
+  background: url(../img/presentation/topleft.gif) no-repeat;
+  width: 45px;
+  height: 45px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+#top-right-repeat-y {
+  background: url(../img/presentation/riteside.gif) repeat-y;
+  width: 45px;
+  height: 125px;
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+#top-right {
+  background: url(../img/presentation/topright.gif) no-repeat;
+  width: 45px;
+  height: 45px;
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+header {
+  padding: 0;
+  margin: 0 auto;
+  width: 530px;
+  height: 125px;
+}
+/* Tan hack \*/
+* html header {
+  width: 535px;
+}
+/* END Tan hack */
+header #site-name {
+  display: none;
+}
+#banner {
+  float: left;
+  width: 500px;
+  height: 125px;
+  margin: 0;
+  padding: 0;
+}
+#top-left-longimg {
+  background: url(../img/presentation/top_l_b.gif) no-repeat;
+  width: 15px;
+  height: 125px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+#top-right-longimg {
+  background: url(../img/presentation/top_r_b.gif) no-repeat;
+  width: 15px;
+  height: 125px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+#main {
+  width: 500px;
+  margin: 0 auto;
+  clear: both;
+}
+footer {
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 0 20px 0;
+  width: 500px;
+  border-top: 1px solid #800000;
+  font-size: 0.8em;
+}
+#bottom-border {
+  background: url(../img/presentation/bottom.gif) repeat-x;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 45px;
+}
+#bottom-left {
+  background: url(../img/presentation/botleft.gif) no-repeat;
+  width: 45px;
+  height: 45px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+#bottom-right {
+  background: url(../img/presentation/botright.gif) no-repeat;
+  width: 45px;
+  height: 45px;
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+** Page layout blocks / IDs
+*/
+#logo {
+  vertical-align: middle;
+  border: 0;
+}
+#logo img {
+  float: left;
+  padding: 0em 1.0em 0em 1em;
+  border: 0;
+}
+#menu {
+  padding: 0.5em 0.5em 0 0.5em;
+  text-align: right;
+  vertical-align: middle;
+}
+#primary {
+  font-size: 1.0em;
+  padding: 0em 0.8em 0.5em 0;
+  color: #9cf;
+}
+#primary a {
+  font-weight: bold;
+  color: #fff;
+}
+#secondary {
+  padding: 0 1em 0.5em 0;
+  font-size: 0.8em;
+  color: #9cf;
+}
+#secondary a {
+  font-weight: bold;
+  color: #9cf;
+}
+#search .form-text, #search .form-submit {
+  border: 1px solid #369;
+  font-size: 1.1em;
+  height: 1.5em;
+  vertical-align: middle;
+}
+#search .form-text {
+  width: 8em;
+  padding: 0 0.5em 0 0.5em;
+}
+#help {
+  font-size: 0.9em;
+  margin-bottom: 1em;
+}
+.breadcrumb {
+  margin-bottom: .5em;
+  padding-bottom: .5em;
+}
+.messages {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 0.3em;
+  margin-bottom: 1em;
+}
+.error {
+  border-color: red;
+}
+#sidebar-left, #sidebar-right {
+  background-color: #ddd;
+  width: 16em;
+  /* padding in px not ex because IE messes up 100% width tables otherwise */
+  padding: 10px;
+  vertical-align: top;
+}
+.menu, #logout-link {
+  text-align: right;
+  font-size: 0.8em;
+}
+.clear {
+  clear: both;
+}
+.center {
+  text-align: center;
+}
+.center img {
+  display: inline;
+}
+.capitalised {
+  text-transform: uppercase;
+}
+.underlined {
+  text-decoration: underline;
+}
+
+/* Tab navigation */
+ul.primary {
+  margin: 5px 0;
+  border-bottom: 1px solid #000080;
+}
+ul.primary li a {
+  border-color: #000080;
+}
+ul.primary li.active a {
+  border: 1px solid #000080;
+  border-bottom: #fff 1px solid;
+}
+ul.primary li a:hover {
+  border-color: #0000c0;
+  border-bottom-color: #eee;
+}
+ul.secondary {
+  border-bottom: 1px solid #000080;
+  margin: 5px 0;
+}
+
+/*
+** Top navigation bar.
+*/
+header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+header ul li {
+  display: inline;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+header ul li a {
+  padding: 0;
+  margin: 0;
+}
+header ul li img, header img {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+/*
+** Common declarations for child classes of node, comment, block, box, etc.
+** If you want any of them styled differently for a specific parent, add
+** additional rules /with only the differing properties!/ to .parent .class.
+** See .comment .title for an example.
+*/
+.hide, header img.hide {
+  display: none;
+}
+#mission {
+  font-style: italic;
+}
+a:link.active, a:visited.active, a:hover.active, a:active.active {
+  color: #000;
+}
+.submitted {
+  color: #999;
+  font-size: 0.8em;
+}
+.links {
+  color: #999;
+}
+.links a {
+  font-weight: bold;
+}
+.block {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.node {
+  margin: .5em 0 2em 0;
+}
+.sticky {
+  padding: .5em;
+  background-color: #eee;
+  border: solid 1px #ddd;
+}
+.node .content, .comment .content {
+  margin: .5em 0 .5em 0;
+}
+.node .taxonomy {
+  color: #999;
+  font-size: 0.8em;
+  padding: 0.5em 0;
+  display: block;
+}
+.node .picture {
+  border: 1px solid #ddd;
+  float: right;
+  margin: 0.5em;
+}
+.comment {
+  border: 1px solid #abc;
+  padding: .5em;
+  margin-bottom: 1em;
+}
+.comment .title a {
+  font-size: 1.1em;
+  font-weight: normal;
+}
+.comment .new {
+  text-align: right;
+  font-weight: bold;
+  font-size: 0.8em;
+  float: right;
+  color: red;
+}
+.comment .picture {
+  border: 1px solid #abc;
+  float: right;
+  margin: 0.5em;
+}
+
+/*
+** Front page styles
+*/
+#front-produced-by-greenash {
+  font-size: 0.9em;
+  padding: 1em 0;
+  border-top: 1px solid #000080;
+  border-bottom: 1px solid #000080;
+  margin-bottom: 10px;
+}
+#front-produced-by-greenash p {
+  text-align: center;
+}
+#front-produced-by-greenash span a {
+  display: block;
+  width: 50px;
+  margin-left: 225px;
+}
+#front-produced-by-greenash span a:hover {
+  background-color: transparent;
+}
+#front-hippo-image {
+  float: left;
+  padding: 10px 0;
+}
+#front-hippo-caption {
+  float: right;
+  width: 200px;
+  padding-left: 20px;
+  text-align: center;
+}
+#front-hippo-mascot-text {
+  color: #800000;
+  font-family: "Comic Sans MS", "Comic Sans", Fantasy;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+#front-chad-wrap1 {
+  background: url(../img/content/chad.gif) top left no-repeat;
+  padding-left: 128px;
+}
+#front-chad-wrap2 {
+  background: url(../img/content/chad2.gif) top right no-repeat;
+  padding: 20px 128px 0 0;
+  height: 128px;
+  text-align: center;
+  font-size: 1.1em;
+  font-style: italic;
+}
+#front-chad-wrap2 strong {
+  color: #800000;
+  font-family: "Comic Sans MS", "Comic Sans", Fantasy;
+  font-size: 1.1em;
+}
+.view-table-latest-news-2to4 .view-field-node-created, .view-table-latest-news-no1 .view-field-node-created, .view-table-news-catview .view-field-node-created {
+  font-style: italic;
+}
+table.view-table-latest-news-2to4 tr td.view-field-node-body, table.view-table-latest-news-no1 tr td.view-field-node-body, table.view-table-news-catview tr td.view-field-node-body {
+  padding: 0.2em 0 0.2em 0.2em;
+}
+.front-summary-divider {
+  text-align: center;
+  clear: both;
+  padding: 0 0 1em 0;
+  margin: 0;
+}
+.front-summary-divider-bottom {
+  padding: 0;
+}
+.front-summary-divider img {
+  display: inline;
+}
+#front-summary-list {
+  width: 500px;
+  padding: 0;
+  margin: 0;
+}
+#front-summary-list dt {
+  width: 60px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+/* commented backslash hack for mac-ie5 \*/
+#front-summary-list dt {
+  clear: both;
+}
+/* end hack */
+#front-summary-list dd {
+  float: left;
+  width: 438px;
+  margin: 0;
+  padding: 0 0 1em 0;
+}
+#front-summary-list a:link, #front-summary-list a:visited, #front-summary-list a:hover, #front-summary-list a:active {
+  color: #800000;
+  font-family: "Comic Sans MS", "Comic Sans", Fantasy;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+/*
+** Views styles
+*/
+table.view-table th, table.view-table tr, table.view-table tr td {
+  background-color: #fff;
+  border: 0;
+}
+.view-field-node-body-wrap {
+  background-color: #ffff80;
+  padding: 0.2em 0.5em;
+}
+
+/*
+** Gallery styles
+*/
+ul.images {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.images li {
+  float: left;
+  margin: 1em 1em 1em 0;
+  width: 100px;
+  height: 100px;
+}
+ul.galleries li {
+  background: transparent;
+  border: 1px #000080 solid;
+  margin: 0 0 1em 0;
+  padding: 1em;
+}
+ul.galleries li .count {
+  font-style: italic;
+}
+.image-navigation {
+  padding: 1em 0 0 3em;
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #888;
+  text-align: center;
+  padding: 0.5em;
+  margin-top: 1em;
+}
+.image-navigation .image-previous {
+  margin-right: 4em;
+  text-align: right;
+}
+.image-navigation .image-next {
+  text-align: left;
+}
+#gallery-israel-feet {
+  height: 294px;
+  width: 500px;
+}
+.caption {
+  font-size: 0.8em;
+}
+
+/*
+** Category styles
+*/
+.category-navigation .menu, .category-navigation .page-links {
+  border: 0;
+  font-size: 1em;
+  clear: both;
+}
+.category-navigation .menu {
+  border-top: 1px solid #ccc;
+  padding: 1em 0 0 3em;
+}
+
+
+
+/*
+** Library styles
+*/
+.overweight-mermaid-title {
+  font: 0.8em "Courier New", Courier, monospace;
+  text-decoration: underline;
+  text-align: center;
+}
+.library-interview-person {
+  font: 1em "Courier New", Courier, monospace;
+}
+.node-library-preview {
+  border: 1px solid #000080;
+  padding: 1em;
+}
+.library-when {
+  font-size: 0.8em;
+}
+.isr-toc {
+  width: 500px;
+  margin: 1em 0;
+  padding: 0;
+}
+.isr-toc dt {
+  width: 120px;
+  float: left;
+  margin: 0;
+  padding: 0.8em 0 0.5em 0;
+  border-top: 1px solid #000080;
+}
+/* commented backslash hack for mac-ie5 \*/
+.isr-toc dt {
+  clear: both;
+}
+/* end hack */
+.isr-toc dd {
+  float: left;
+  width: 378px;
+  margin: 0;
+  padding: 0.5em 0 1em 0;
+  border-top: 1px solid #000080;
+}
+dt.isr-toc-top, dd.isr-toc-top {
+  border-top-width: 0;
+}
+#library-warning {
+  padding: 1em;
+  border: 1px solid #f00;
+}
+#library-warning strong {
+  color: #f00;
+}
+.library-image {
+  float: left;
+  padding-right: 10px;
+}
+
+
+
+/* pager styles (from drupal.css) */
+
+#pager {
+  clear: both;
+  text-align: center;
+  margin-top: 1em;
+}
+#pager a, #pager strong.pager-current {
+  padding: 0.5em;
+}
+
+
+
+/* menu styles (from drupal.css) */
+
+ul.menu {
+  list-style: none;
+  text-align: left;
+}
+
+ul.menu li {
+  margin: 0 0 0 0.5em;
+}
+
+li.leaf {
+  list-style-type: square;
+  list-style-image: url(../img/icons/menu-leaf.png);
+  padding: 0.2em 0.5em 0 0;
+}
+
+li.collapsed {
+  list-style-type: disc;
+  list-style-image: url(../img/icons/menu-collapsed.png);
+  padding: 0.2em 0.5em 0 0;
+}
+
+
+/* image gallery styles (from image_gallery.css) */
+
+ul.galleries {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.galleries li img {
+  float: left;
+  padding-right: 4px;
+  margin-right: 4px;
+}
+
+
+/* category navigation styles (from category_display.css) */
+
+.category-navigation .page-links {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+
+.category-navigation .page-previous {
+  text-align: right;
+  margin: 0 2em 0 0;
+}
+
+.category-navigation-page-next {
+  text-align: left;
+  margin: 0 0 0 2em;
+}
+
+
+/* img_assist styles (from img_assist.css) */
+
+span.left {
+  float: left;
+  margin: 5px 5px 5px 0;
+}
+
+span.right {
+  float: right;
+  margin: 5px 0 5px 5px;
+}
+
+.inline img {
+  border: 1px solid #000;
+}
+
+span.caption {
+  display: block;
+}

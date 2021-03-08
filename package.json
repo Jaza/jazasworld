@@ -1,0 +1,28 @@
+{
+  "name": "jazasworld",
+  "version": "0.1.0",
+  "description": "Source code for Jaza's World, a site built with Eleventy.",
+  "scripts": {
+    "build": "npx eleventy",
+    "watch": "npx eleventy --watch",
+    "serve": "npx eleventy --serve",
+    "debug": "DEBUG=* npx eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jaza/jazasworld"
+  },
+  "author": {
+    "name": "Jeremy Epstein",
+    "email": "jazepstein@gmail.com",
+    "url": "https://greenash.net.au/"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Jaza/jazasworld/issues"
+  },
+  "homepage": "https://github.com/Jaza/jazasworld",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1"
+  }
+}
