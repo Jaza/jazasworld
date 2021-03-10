@@ -1,11 +1,14 @@
-  <title>{{ renderData.title or title or metadata.title }}</title>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+  <title>{% if not isFront and (renderData.title or title) %}{{ renderData.title or title }} - {% endif %}{{ metadata.title }}</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="imagetoolbar" content="false" />
 
-  <meta name="keywords" content="jaza, jaza's world, jeremy epstein, home page" />
+  <meta name="keywords" content="{{ metadata.keywords }}" />
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
 
@@ -17,3 +20,8 @@
   <script type="text/javascript" src="/js/respond.js"></script>
   <script type="text/javascript" src="/js/jquery.min.js"></script>
   <script type="text/javascript" src="/js/jq-rollover.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+  <div id="wrapper2">

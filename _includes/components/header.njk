@@ -1,0 +1,14 @@
+  <div id="top-border">
+
+      <div id="top-left-repeat-y"><div id="top-left"></div></div>
+      <div id="top-right-repeat-y"><div id="top-right"></div></div>
+
+      <header>
+
+        <{% if isFront %}h1{% else %}div{% endif %} id="site-name">{{ metadata.title }}</{% if isFront %}h1{% else %}div{% endif %}>
+
+        <div id="top-left-longimg"></div>
+
+        <div id="banner">
+
+          <a href="/" title="Home"><img src="/img/icons/banner.gif" alt="Home" /></a>

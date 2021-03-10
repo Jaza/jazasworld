@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" class="no-js">
-    <head>
-    {% include "components/head.njk" %}
-    </head>
-    <body>
+{% include "components/html_head.njk" %}
+{% include "components/header.njk" %}
+{% include "components/nav.njk" %}
+{% include "components/after_nav.njk" %}
 
-<div id="wrapper">
-  <div id="wrapper2">
+  <div id="main">
 
-    <div id="bottom-border">
-      <div id="bottom-left"></div>
-      <div id="bottom-right"></div>
-    </div> <!-- bottom-border -->
+  </div><!-- /#main -->
 
-  </div> <!-- wrapper2 -->
-</div> <!-- wrapper -->
+<div class="clear"></div>
 
-    </body>
-</html>
+<div id="bot-left"><div id="bot-right"><div id="bottom">
+</div><!-- /#bottom --></div><!-- /#bot-right --></div><!-- /#bot-left -->
+
+<footer>
+{% include "components/footer.njk" %}
+</footer>
+
+{% include "components/html_foot.njk" %}

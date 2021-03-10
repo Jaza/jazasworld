@@ -1,0 +1,8 @@
+<p>
+  {% set navPages = collections.all | eleventyNavigation %}
+  {%- for entry in navPages %}
+    [<a href="{{ entry.url | url }}"{% if entry.url == page.url %} class="active"{% endif %}>{{ entry.title }}</a>]
+  {%- endfor %}
+</p>
+
+<p>&copy; 1998-{{ datetime.currentYear }} Jeremy Epstein.</p>
