@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="no-js">
 <head>
-  <title>{% if not isFront and (renderData.title or title) %}{{ renderData.title or title }} - {% endif %}{{ metadata.title }}</title>
+  <title>{% if not isFront %}{{ renderData.title or title }} - {% endif %}{{ metadata.title }}</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

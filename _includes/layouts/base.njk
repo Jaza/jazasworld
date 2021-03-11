@@ -5,6 +5,20 @@
 
   <div id="main">
 
+  <{% if isFront %}div class="page-title"{% else %}h1{% endif %}>{{ renderData.title or title }}</{% if isFront %}div{% else %}h1{% endif %}>
+
+{% include "components/breadcrumb.njk" %}
+
+  <div class="node">
+
+  </div><!-- /.node -->
+
+  <div class="content">
+
+{{ layoutContent | safe }}
+
+  </div><!-- /.content -->
+
   </div><!-- /#main -->
 
 <div class="clear"></div>
