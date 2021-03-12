@@ -20,7 +20,8 @@ module.exports = function(eleventyConfig) {
 
   // Date formatting (human readable)
   eleventyConfig.addFilter("readableDate", dateObj => {
-    const dayOfMonthStr = DateTime.fromJSDate(dateObj).toFormat("d");
+    const dayOfMonthStr = (
+      DateTime.fromJSDate(dateObj, {zone: "utc"}).toFormat("d"));
     const dayOfMonth = parseInt(dayOfMonthStr);
 
     // Thanks to: https://momentjs.com/docs/#/customization/ordinal/
