@@ -1,3 +1,4 @@
+const { DateTime } = require("luxon");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 module.exports = function(eleventyConfig) {
@@ -8,12 +9,41 @@ module.exports = function(eleventyConfig) {
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);
 
+  // List of only the pages that should show in the header nav
   eleventyConfig.addCollection("headerNavPages", collectionApi => {
     return collectionApi.getAll().filter((item) => {
       return (
         item.data.hasOwnProperty("eleventyNavigation")
           && item.data.eleventyNavigation.includeInHeaderNav);
     });
+  });
+
+  // Date formatting (human readable)
+  eleventyConfig.addFilter("readableDate", dateObj => {
+    const dayOfMonthStr = DateTime.fromJSDate(dateObj).toFormat("d");
+    const dayOfMonth = parseInt(dayOfMonthStr);
+
+    // Thanks to: https://momentjs.com/docs/#/customization/ordinal/
+    const getOrdinal = (number) => {
+      const b = number % 10;
+      const output = ((~~(number % 100 / 10) === 1)
+        ? "th"
+        : ((b === 1)
+          ? "st"
+          : ((b === 2)
+            ? "nd"
+            : ((b === 3)
+              ? "rd"
+              : "th"))));
+
+      return output;
+    };
+
+    return (
+      dayOfMonthStr
+        + getOrdinal(dayOfMonth)
+        + " "
+        + DateTime.fromJSDate(dateObj).toFormat("LLL y"));
   });
 
   // Don't process folders with static assets e.g. images

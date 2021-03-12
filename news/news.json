@@ -1,0 +1,4 @@
+{
+  "layout": "layouts/news/detail.njk",
+  "permalink": "/news/{{ title | slug }}/"
+}
