@@ -8,6 +8,14 @@ module.exports = function(eleventyConfig) {
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);
 
+  eleventyConfig.addCollection("headerNavPages", collectionApi => {
+    return collectionApi.getAll().filter((item) => {
+      return (
+        item.data.hasOwnProperty("eleventyNavigation")
+          && item.data.eleventyNavigation.includeInHeaderNav);
+    });
+  });
+
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("css");

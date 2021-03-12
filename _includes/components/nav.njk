@@ -1,5 +1,6 @@
 <nav role="navigation">
-  {% set navPages = collections.all | eleventyNavigation %}
+  {% set navPages = collections.headerNavPages | eleventyNavigation %}
+
   <ul>
   {%- for entry in navPages %}
     <li class="{% if entry.url == page.url %}active{% endif %}{% if loop.first %} first{% elif loop.last %} last{% endif %}">
