@@ -1,0 +1,9 @@
+<tr>
+  <td class="view-field view-field-node-created">
+    <a href="{{ newsItem.url | url }}">{{ newsItem.date | readableDate }}</a>
+  </td>
+
+  <td class="view-field view-field-node-body"><div class="view-field-node-body-wrap">
+    {{ newsItem.data.content | safe }}
+  </div></td>
+</tr>

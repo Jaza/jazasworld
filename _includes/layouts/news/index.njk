@@ -1,9 +1,33 @@
 ---
 layout: layouts/base.njk
 section: news
+pagination:
+  data: collections.news
+  size: 10
+  alias: newsItems
+  reverse: true
 ---
 <div class="content">
 
 {{ content | safe }}
+
+{%- if newsItems.length %}
+
+<table class="view-table view-table-news-catview">
+ <thead><tr><th id="view-field-node-created" class="view-cell-header"></th><th id="view-field-node-body" class="view-cell-header"></th> </tr></thead>
+<tbody>
+
+{%- for newsItem in newsItems %}
+{% include "components/news_teaser.njk" %}
+{%- endfor %}
+
+</tbody></table>
+
+{% include "components/pagination.njk" %}
+{%- else %}
+
+<p><em>No news items found.</em></p>
+
+{%- endif %}
 
 </div><!-- /.content -->
