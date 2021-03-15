@@ -12,9 +12,13 @@ section: home
 </div>
 {%- endif %}
 
+{%- if collections.news.length %}
 {{ latestNewsHeading | safe }}
 
-(first news item here)
+{%- set newsItems = collections.news | reverse | jsslice(0, 1) %}
+{% include "components/news_listing.njk" %}
+{%- endif %}
+
 <div class="clear"></div>
 
 {{ hippoImage | safe }}
@@ -43,9 +47,13 @@ section: home
 
 {{ summaryDividerBottom | safe }}
 
+{%- if collections.news.length > 1 %}
 {{ siteNewsHeading | safe }}
 
-(next 3 news items here)
+{%- set newsItems = collections.news | reverse | jsslice(1, 4) %}
+{% include "components/news_listing.njk" %}
+{%- endif %}
+
 <div class="clear"></div>
 
 </div><!-- /.content -->

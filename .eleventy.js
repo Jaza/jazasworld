@@ -47,6 +47,12 @@ module.exports = function(eleventyConfig) {
         + DateTime.fromJSDate(dateObj).toFormat("LLL y"));
   });
 
+  // Needed because the nunjucks built-in slice filter is actually a chunker, but we
+  // want regular JS slice behaviour
+  eleventyConfig.addFilter("jsslice", (value, start, end) => {
+    return value.slice(start, end);
+  });
+
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("css");
