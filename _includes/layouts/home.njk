@@ -6,61 +6,44 @@ section: home
 
 {{ content | safe }}
 
+{%- if producedBy %}
 <div id="front-produced-by-greenash">
-  <p><strong>Jaza's World proudly produced by</strong></p><br />
-
-  <span><a href="http://greenash.net.au/"><img src="/img/content/music_natural_sign.png" /></a></span>
-
-  <p><a href="http://greenash.net.au/">GreenAsh</a></p>
+{{ producedBy | safe }}
 </div>
+{%- endif %}
 
-<h2>Latest news:</h2>
+{{ latestNewsHeading | safe }}
 
 (first news item here)
 <div class="clear"></div>
 
-<img src="/img/content/hippo.gif" id="front-hippo-image" />
+{{ hippoImage | safe }}
 
+{%- if hippoCaption %}
 <div id="front-hippo-caption">
-  <p>This purple hippo still holds the much-coveted position of:</p>
-
-  <p id="front-hippo-mascot-text">Official Jaza's World mascot!</p>
+{{ hippoCaption | safe }}
 </div>
+{%- endif %}
 
-<p class="clear">For those of you that are old-timers: welcome back, and I hope you stay longer than you did last time. And for those of you that are new: the toilet's down the hall on the left, and sorry if the milk's off. Yes, this is Jaza's World. It's at approximately version 5.0, although it may be more than that, as I haven't been keeping track properly. And for the first time, it's dynamic, template-based, and <abbr title="Content Management System">CMS</abbr>-powered.</p>
+<div class="clear"></div>
 
-<p>Jaza's World has been proudly contributing very little to the Internet since 1998. I hope to continue this grand and glorious tradition for many more years, with the aim of many more people finding Jaza's World and feeling that they were right all along, in thinking that the Internet really is full of useless gunk. Gunk such as Jaza's Favourite Friggin' Fact:</p>
+{{ welcomeBlurb | safe }}
 
+{%- if capitalOfChad %}
 <div id="front-chad-wrap1"><div id="front-chad-wrap2">
-
-  <p>The capital of Chad is <strong>N'Djamena!</strong>
-
+{{ capitalOfChad | safe }}
 </div></div>
+{%- endif %}
 
-<p>Of course, I don't actually know anything about Chad (except that it's the home of the controversially named 'Lake Chad'), since I live far away in Sydney Australia. Now, here's some new info about the various sections of Jaza's World, to get you started:</p>
+{{ sectionInfo | safe }}
 
-<p class="front-summary-divider"><img src="/img/nav/home.gif" /></p>
+{{ summaryDividerTop | safe }}
 
-<dl id="front-summary-list">
-  <dt><a href="/gallery/"><img src="/img/nav/gallery.gif" alt="Gallery" /></a></dt>
-  <dd><a href="/gallery/">Gallery</a>: Nice way of saying 'Photos, photos and more photos'. The usual shots of family gatherings over the years, as well as shots from social events, birthday parties, and holidays. Funny photos will feature prominently.</dd>
-  <dt><a href="/library/"><img src="/img/nav/library.gif" alt="Library" /></a></dt>
-  <dd><a href="/library">Library</a>: Incorporating the old 'books' section, which will have most of the old favourites and their ratings, as well as plenty of new books I recommend to all of you. If you're lucky, you may find some of my written work available on this page too.</dd>
-  <dt><a href="/kennel/"><img src="/img/nav/kennel.gif" alt="Kennel" /></a></dt>
-  <dd><a href="/kennel/">Kennel</a>: Jaza's World just wouldn't be Jaza's World without Boo's kennel. Sadly, Boo is no more; but his cyberspirit remains, complete with the famous story and the usual photo shoots. You can find Boo's most glamorous shots, such as 'Boo with tennis ball 1', 'Boo with tennis ball 26', etc.</dd>
-  <dt><a href="/interests/"><img src="/img/nav/interests.gif" alt="Interests" /></a></dt>
-  <dd><a href="/interests/">Interests</a>: I plan for this area to be mainly about computer games and stuff. But whatever takes my fancy, it may also get a mention here!</dd>
-  <dt><a href="/guestbook/"><img src="/img/nav/guestbook.gif" alt="Guestbook" /></a></dt>
-  <dd><a href="/guestbook/">Guestbook</a>: The same old guestbook as ever, except with some brand new fields I added just for fun. The complete archive of entries (dating back to c. 1997) also available.</dd>
-  <dt><a href="/links/"><img src="/img/nav/links.gif" alt="Links" /></a></dt>
-  <dd><a href="/links/">Links</a>: The once proud Links page was for many years the best thing about Jaza's World. For some time it fell into shadow, but now it has returned with its legendary enormous list of web sites.</dd>
-  <dt><a href="/contact/"><img src="/img/nav/contact.gif" alt="Contact" /></a></dt>
-  <dd><a href="/contact/">Contact</a>: Every conceivable way you can contact me. Well, not every way, but enough to get the message across.</dd>
-</dl>
+{{ summaryList | safe }}
 
-<p class="front-summary-divider front-summary-divider-bottom"><img src="/img/nav/star.gif" /></p>
+{{ summaryDividerBottom | safe }}
 
-<h2>Site news:</h2>
+{{ siteNewsHeading | safe }}
 
 (next 3 news items here)
 <div class="clear"></div>
