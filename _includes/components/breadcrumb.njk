@@ -1,0 +1,69 @@
+{%- set pageUrlRegExp = r/^\/(news|gallery|library|interests|guestbook)\/[^\/]+\/.*$/ %}
+{%- if pageUrlRegExp.test(page.url) %}
+
+<div class="breadcrumb">
+<a href="/">Home</a>
+
+{%- set newsRegExp = r/^\/news\/[^\/]+\/$/ %}
+{%- if newsRegExp.test(page.url) %}
+  &raquo; <a href="/news/">News</a>
+{%- endif %}
+
+{#
+<?php elseif ($content_type == 'gallery'): ?>
+  &raquo; <a href="/gallery/">Gallery</a>
+  <?php if (!empty($parent_full_identifier)): ?>
+    &raquo; <a href="<?php print gallery_get_url_path($parent_full_identifier); ?>"><?php print gallery_get_title($parent_slug, gallery_get_page_file($parent_full_identifier)); ?></a>
+  <?php endif; ?>
+<?php elseif ($content_type == 'photo'): ?>
+  &raquo; <a href="/gallery/">Gallery</a>
+  <?php if (!empty($gallery_parent_full_identifier)): ?>
+    &raquo; <a href="<?php print gallery_get_url_path($gallery_parent_full_identifier); ?>"><?php print gallery_get_title($gallery_parent_slug, gallery_get_page_file($gallery_parent_full_identifier)); ?></a>
+  <?php endif; ?>
+  &raquo; <a href="<?php print gallery_get_url_path($gallery_full_identifier); ?>"><?php print gallery_get_title($gallery_slug, gallery_get_page_file($gallery_full_identifier)); ?></a>
+<?php elseif (in_array($content_type, array('writing', 'runrings', 'isrdiary'))): ?>
+  &raquo; <a href="/library/">Library</a>
+  &raquo; <a href="/library/writings/">Writings</a>
+  <?php if ($content_type == 'runrings'): ?>
+  &raquo; <a href="/library/writings/running-rings/">Running Rings</a>
+  <?php elseif ($content_type == 'isrdiary'): ?>
+  &raquo; <a href="/library/writings/israel-diary/">Israel Diary</a>
+  <?php endif; ?>
+<?php elseif (in_array($content_type, array('review', 'reviewtag'))): ?>
+  &raquo; <a href="/library/">Library</a>
+  &raquo; <a href="/library/books/">Books</a>
+  <?php if ($content_type == 'reviewtag'): ?>
+  &raquo; <a href="/library/books/categories/">Categories</a>
+  <?php endif; ?>
+<?php elseif (in_array($content_type, array('game', 'gametag'))): ?>
+  &raquo; <a href="/interests/">Interests</a>
+  &raquo; <a href="/interests/games/">Games</a>
+  <?php if ($content_type == 'gametag'): ?>
+  &raquo; <a href="/interests/games/categories/">Categories</a>
+  <?php endif; ?>
+<?php elseif ($content_type == 'gbook'): ?>
+  &raquo; <a href="/guestbook/">Guestbook</a>
+  &raquo; <a href="/guestbook/entries/">Entries</a>
+<?php elseif ($content_type == 'page'): ?>
+  <?php if (Q == 'gallery/trip-to-israel-2003-2004/whose-feet'): ?>
+  &raquo; <a href="/gallery/">Gallery</a>
+  &raquo; <a href="/gallery/trip-to-israel-2003-2004/">Trip to Israel, 2003/2004</a>
+  <?php elseif (in_array(Q, array('library/writings', 'library/books', 'library/books/categories'))): ?>
+  &raquo; <a href="/library/">Library</a>
+  <?php if (Q == 'library/books/categories'): ?>
+  &raquo; <a href="/library/books/">Books</a>
+  <?php endif; ?>
+  <?php elseif (in_array(Q, array('interests/games', 'interests/games/categories'))): ?>
+  &raquo; <a href="/interests/">Interests</a>
+  <?php if (Q == 'interests/games/categories'): ?>
+  &raquo; <a href="/interests/games/">Games</a>
+  <?php endif; ?>
+  <?php elseif (in_array(Q, array('guestbook/add-entry', 'guestbook/entries'))): ?>
+  &raquo; <a href="/guestbook/">Guestbook</a>
+  <?php endif; ?>
+<?php endif; ?>
+#}
+
+</div><!-- /.breadcrumb -->
+
+{%- endif %}

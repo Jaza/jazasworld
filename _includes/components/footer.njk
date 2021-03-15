@@ -1,7 +1,8 @@
 <p>
   {% set navPages = collections.all | eleventyNavigation %}
   {%- for entry in navPages %}
-    [<a href="{{ entry.url | url }}"{% if entry.url == page.url %} class="active"{% endif %}>{{ entry.title }}</a>]
+    {%- set truncatedNavUrl = page.url | truncate(entry.url.length, true, "") %}
+    [<a href="{{ entry.url | url }}"{% if entry.url === page.url or (entry.url !== "/" and entry.url === truncatedNavUrl) %} class="active"{% endif %}>{{ entry.title }}</a>]
   {%- endfor %}
 </p>
 
