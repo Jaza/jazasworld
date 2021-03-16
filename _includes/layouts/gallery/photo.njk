@@ -1,0 +1,12 @@
+---
+layout: layouts/base.njk
+---
+<div class="content">
+
+{%- if params and params.uploadsBaseURL and (filepathPreview or filepathOriginal) %}
+<img src="{{ params.uploadsBaseURL }}{% if filepathPreview %}{{ filepathPreview }}{% else %}{{ filepathOriginal }}{% endif %}" alt="{{ title }}" title="{{ title }}" class="image preview" />
+{%- endif %}
+
+{{ content | safe }}
+
+</div><!-- /.content -->

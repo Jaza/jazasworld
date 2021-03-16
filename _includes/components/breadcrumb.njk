@@ -5,8 +5,12 @@
 <a href="/">Home</a>
 
 {%- set newsRegExp = r/^\/news\/[^\/]+\/$/ %}
+{%- set galleryRegExp = r/^\/gallery\/[^\/]+\/.*$/ %}
+
 {%- if newsRegExp.test(page.url) %}
   &raquo; <a href="/news/">News</a>
+{%- elif galleryRegExp.test(page.url) %}
+  &raquo; <a href="/gallery/">Gallery</a>
 {%- endif %}
 
 {#
