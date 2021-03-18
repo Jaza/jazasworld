@@ -53,6 +53,21 @@ module.exports = function(eleventyConfig) {
     return value.slice(start, end);
   });
 
+  // Given a page URL, find its parent page by chopping off the final
+  // slash-delimited part of the URL, and finding a matching page.
+  eleventyConfig.addFilter("getParentPage", (collection, pageURL) => {
+    if (!pageURL.match(/^\/[^/]+\/([^/]+\/)+$/)) {
+      return null;
+    }
+
+    const expectedParentPageURL = pageURL.replace(/[^/]+\/$/, "");
+    const parentPages = collection.filter(item => {
+      return item.url === expectedParentPageURL;
+    });
+
+    return parentPages.length ? parentPages[0] : null;
+  });
+
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("css");

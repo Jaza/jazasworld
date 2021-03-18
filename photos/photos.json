@@ -1,7 +1,4 @@
 {
   "layout": "layouts/gallery/photo.njk",
-  "permalink": "/gallery/{{ gallerySlug }}/{{ title | slug }}/",
-  "tags": [
-    "photo"
-  ]
+  "permalink": "/gallery/{{ gallerySlug }}/{{ title | slug }}/"
 }

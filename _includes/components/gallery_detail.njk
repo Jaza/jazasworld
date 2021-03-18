@@ -1,0 +1,11 @@
+<ul class="images">
+
+{%- for photoItem in photoItems %}
+  <li><a href="{{ photoItem.url }}">
+  {%- if params and params.uploadsBaseURL and photoItem.data and photoItem.data.filepathThumbnail %}
+    <img src="{{ params.uploadsBaseURL }}{{ photoItem.data.filepathThumbnail }}" />
+  {%- endif %}
+  </a></li>
+{%- endfor %}
+
+</ul>

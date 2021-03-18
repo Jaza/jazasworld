@@ -11,6 +11,11 @@
   &raquo; <a href="/news/">News</a>
 {%- elif galleryRegExp.test(page.url) %}
   &raquo; <a href="/gallery/">Gallery</a>
+
+  {%- set parentGallery = collections.gallery | getParentPage(page.url) %}
+  {%- if parentGallery %}
+    &raquo;  <a href="{{ parentGallery.url | url }}">{{ parentGallery.data.title }}</a>
+  {%- endif %}
 {%- endif %}
 
 {#

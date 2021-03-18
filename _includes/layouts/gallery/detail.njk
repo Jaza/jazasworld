@@ -1,8 +1,33 @@
----
-layout: layouts/base.njk
+---js
+{
+  layout: "layouts/base.njk",
+  pagination: {
+    data: "collections.photo",
+    size: 10,
+    alias: "photoItems",
+    pageOnEmptyData: true,
+    before: function(data) {
+      const galleryTag = this.data.slug;
+      return data.filter(item => {
+        return item.data.tags.includes(galleryTag);
+      });
+    }
+  }
+}
 ---
 <div class="content">
 
 {{ content | safe }}
+
+{%- if photoItems.length %}
+
+{% include "components/gallery_detail.njk" %}
+
+{% include "components/pagination.njk" %}
+{%- else %}
+
+<p><em>No gallery items found.</em></p>
+
+{%- endif %}
 
 </div><!-- /.content -->
