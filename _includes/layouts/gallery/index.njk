@@ -6,6 +6,7 @@ layout: layouts/base.njk
 {{ content | safe }}
 
 {%- if collections.gallery %}
+{{ collections.gallery }}
 
 <ul class="galleries">
 {%- for galleryItem in collections.gallery | reverse %}
