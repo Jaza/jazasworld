@@ -7,6 +7,11 @@
     alias: "photoItems",
     pageOnEmptyData: true,
     before: function(data) {
+      // TODO: remove once "this" is supported in "before' in eleventy
+      if (!(this.data && this.data.slug)) {
+        return data[Math.floor(Math.random() * data.length)];
+      }
+
       const galleryTag = this.data.slug;
       return data.filter(item => {
         return item.data.tags.includes(galleryTag);
