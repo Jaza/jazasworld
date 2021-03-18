@@ -5,4 +5,28 @@ layout: layouts/base.njk
 
 {{ content | safe }}
 
+{%- if collections.gallery %}
+
+<ul class="galleries">
+{%- for galleryItem in collections.gallery | reverse %}
+  <li style="height: 100px">
+
+{%- set photos = collections[galleryItem.data.slug] %}
+{%- set featurePhoto = photos | first %}
+{%- if params and params.uploadsBaseURL and featurePhoto and featurePhoto.data and featurePhoto.data.filepathThumbnail %}
+<a href="{{ galleryItem.url | url }}"><img src="{{ params.uploadsBaseURL }}{{ featurePhoto.data.filepathThumbnail }}" /></a>
+{%- endif %}
+
+<h3><a href="{{ galleryItem.url | url }}">{{ galleryItem.data.title }}</a></h3>
+
+<div class="description"></div>
+<p class="count">{{ photos | length }} photos</p>
+  </li>
+{%- endfor %}
+</ul>
+
+{%- else %}
+<p><em>No galleries found.</em></p>
+{%- endif %}
+
 </div><!-- /.content -->
