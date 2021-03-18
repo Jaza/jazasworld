@@ -9,7 +9,7 @@
     before: function(data) {
       // TODO: remove once "this" is supported in "before' in eleventy
       if (!(this.data && this.data.slug)) {
-        return data[Math.floor(Math.random() * data.length)];
+        return [data[Math.floor(Math.random() * data.length)]];
       }
 
       const galleryTag = this.data.slug;
