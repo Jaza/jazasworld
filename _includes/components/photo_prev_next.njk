@@ -1,0 +1,9 @@
+<div class="image-navigation">
+  {%- if prevPhoto %}
+  <a href="{{ prevPhoto.url | url }}" class="image-previous" title="Go to previous photo">‹ {{ prevPhoto.data.title }}</a>
+  {%- endif %}
+  {%- if nextPhoto %}
+  <a href="{{ nextPhoto.url | url }}" class="image-next" title="Go to next photo">{{ nextPhoto.data.title }} ›</a>
+  {%- endif %}
+  <br class="clear" />
+</div>

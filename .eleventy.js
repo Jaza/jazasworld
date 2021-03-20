@@ -68,6 +68,12 @@ module.exports = function(eleventyConfig) {
     return parentPages.length ? parentPages[0] : null;
   });
 
+  eleventyConfig.addFilter("getPhotosForGallery", (photos, galleryTag) => {
+    return photos.filter(item => {
+      return item.data.tags.includes(galleryTag);
+    });
+  });
+
   // Don't process folders with static assets e.g. images
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("css");
