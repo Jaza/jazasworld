@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+---
+<div class="content">
+
+{{ content | safe }}
+
+{%- set childGalleryTag = slug + "/childgallery" %}
+{%- set childGalleries = collections[childGalleryTag] %}
+{%- if childGalleries %}
+{% include "components/child_galleries.njk" %}
+{%- endif %}
+
+</div><!-- /.content -->

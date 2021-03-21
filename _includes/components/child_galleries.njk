@@ -1,0 +1,12 @@
+<div class="category-navigation"><ul class="menu">
+
+{%- for childGallery in childGalleries %}
+
+<li class="leaf">
+  {%- set photos = collections[childGallery.data.slug] %}
+  <a href="{{ childGallery.url | url }}">{{ childGallery.data.title }}</a>{% if photos %} ({{ photos | length }}){% endif %}
+</li>
+
+{%- endfor %}
+
+</ul></div><!-- /.category-navigation -->

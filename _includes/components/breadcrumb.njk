@@ -12,9 +12,20 @@
 {%- elif galleryRegExp.test(page.url) %}
   &raquo; <a href="/gallery/">Gallery</a>
 
-  {%- set parentGallery = collections.gallery | getParentPage(page.url) %}
+  {%- set parentGallery = collections.childgallery | getParentPage(page.url) %}
   {%- if parentGallery %}
+    {%- if parentGallery %}
+      {%- set grandParentGallery = collections.toplevelgallery | getParentPage(parentGallery.url) %}
+      {%- if grandParentGallery %}
+    &raquo;  <a href="{{ grandParentGallery.url | url }}">{{ grandParentGallery.data.title }}</a>
+      {%- endif %}
     &raquo;  <a href="{{ parentGallery.url | url }}">{{ parentGallery.data.title }}</a>
+    {%- endif %}
+  {%- else %}
+    {%- set parentGallery = collections.toplevelgallery | getParentPage(page.url) %}
+    {%- if parentGallery %}
+    &raquo;  <a href="{{ parentGallery.url | url }}">{{ parentGallery.data.title }}</a>
+    {%- endif %}
   {%- endif %}
 {%- endif %}
 
