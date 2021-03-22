@@ -5,4 +5,21 @@ layout: layouts/base.njk
 
 {{ content | safe }}
 
+{{ gallerytitle | safe }}
+
+{%- set photoItems = collections["gallery/boo-2002"] %}
+{%- if photoItems.length %}
+
+{% include "components/gallery_detail.njk" %}
+
+{%- else %}
+
+<p><em>No gallery items found.</em></p>
+
+{%- endif %}
+
+<div class="clear"></div>
+
+{{ bottomContent | safe }}
+
 </div><!-- /.content -->
