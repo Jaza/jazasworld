@@ -1,4 +1,4 @@
 {
   "layout": "layouts/gallery/detail.njk",
-  "permalink": "/gallery/{{ title | slug }}/"
+  "permalink": "/{{ slug }}/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
 }
