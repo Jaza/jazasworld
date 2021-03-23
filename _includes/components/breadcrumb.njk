@@ -6,6 +6,7 @@
 
 {%- set newsRegExp = r/^\/news\/[^\/]+\/$/ %}
 {%- set galleryRegExp = r/^\/gallery\/[^\/]+\/.*$/ %}
+{%- set libraryRegExp = r/^\/library\/[^\/]+\/.*$/ %}
 
 {%- if newsRegExp.test(page.url) %}
   &raquo; <a href="/news/">News</a>
@@ -27,20 +28,16 @@
     &raquo;  <a href="{{ parentGallery.url | url }}">{{ parentGallery.data.title }}</a>
     {%- endif %}
   {%- endif %}
+{%- elif libraryRegExp.test(page.url) %}
+  &raquo; <a href="/library/">Library</a>
+
+  {%- set writingsRegExp = r/^\/library\/writings\/.+$/ %}
+  {%- if writingsRegExp.test(page.url) %}
+    &raquo; <a href="/library/writings/">Writings</a>
+  {%- endif %}
 {%- endif %}
 
 {#
-<?php elseif ($content_type == 'gallery'): ?>
-  &raquo; <a href="/gallery/">Gallery</a>
-  <?php if (!empty($parent_full_identifier)): ?>
-    &raquo; <a href="<?php print gallery_get_url_path($parent_full_identifier); ?>"><?php print gallery_get_title($parent_slug, gallery_get_page_file($parent_full_identifier)); ?></a>
-  <?php endif; ?>
-<?php elseif ($content_type == 'photo'): ?>
-  &raquo; <a href="/gallery/">Gallery</a>
-  <?php if (!empty($gallery_parent_full_identifier)): ?>
-    &raquo; <a href="<?php print gallery_get_url_path($gallery_parent_full_identifier); ?>"><?php print gallery_get_title($gallery_parent_slug, gallery_get_page_file($gallery_parent_full_identifier)); ?></a>
-  <?php endif; ?>
-  &raquo; <a href="<?php print gallery_get_url_path($gallery_full_identifier); ?>"><?php print gallery_get_title($gallery_slug, gallery_get_page_file($gallery_full_identifier)); ?></a>
 <?php elseif (in_array($content_type, array('writing', 'runrings', 'isrdiary'))): ?>
   &raquo; <a href="/library/">Library</a>
   &raquo; <a href="/library/writings/">Writings</a>

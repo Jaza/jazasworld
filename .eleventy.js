@@ -18,6 +18,10 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  const readableDateMonthYear = dateObj => {
+    return DateTime.fromJSDate(dateObj).toFormat("LLL y");
+  };
+
   // Date formatting (human readable)
   eleventyConfig.addFilter("readableDate", dateObj => {
     const dayOfMonthStr = (
@@ -44,8 +48,11 @@ module.exports = function(eleventyConfig) {
       dayOfMonthStr
         + getOrdinal(dayOfMonth)
         + " "
-        + DateTime.fromJSDate(dateObj).toFormat("LLL y"));
+        + readableDateMonthYear(dateObj));
   });
+
+  // Date formatting (just month and year)
+  eleventyConfig.addFilter("readableDateMonthYear", readableDateMonthYear);
 
   // Needed because the nunjucks built-in slice filter is actually a chunker, but we
   // want regular JS slice behaviour

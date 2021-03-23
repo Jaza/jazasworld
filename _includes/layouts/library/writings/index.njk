@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+---
+<div class="content">
+
+{{ content | safe }}
+
+{%- set writingItems = collections.writings %}
+
+{%- if writingItems.length %}
+
+{%- for writingItem in writingItems %}
+{% include "components/writing_teaser.njk" %}
+{%- endfor %}
+
+{%- else %}
+
+<p><em>No writings found.</em></p>
+
+{%- endif %}
+
+</div><!-- /.content -->

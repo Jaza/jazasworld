@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/library/writings/detail.njk",
+  "permalink": "/library/writings/{{ title | slug }}/",
+  "tags": [
+    "writings"
+  ]
+}

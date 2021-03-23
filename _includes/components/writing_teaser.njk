@@ -1,0 +1,18 @@
+<div class="node node-library-preview">
+  <p class="library-when">
+    <em>When I wrote it:</em> {{ writingItem.date | readableDateMonthYear }}.
+  </p>
+
+  <p class="library-title"><strong>Title:</strong> {{ writingItem.data.title }}</p>
+
+  <p class="library-info">
+    <strong>Info:</strong>
+
+    {{ writingItem.data.teaser | safe }}
+  </p>
+
+  <p class="library-read-more">
+    <strong>Read:</strong>
+    <a href="{{ writingItem.url | url }}">{{ writingItem.data.readMoreText }}</a>
+  </p>
+</div><!-- /.node-library-preview -->
