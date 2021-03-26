@@ -82,10 +82,10 @@ module.exports = function(eleventyConfig) {
   });
 
   // Don't process folders with static assets e.g. images
-  eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("js");
+  eleventyConfig.addPassthroughCopy({"static/favicon.ico": "favicon.ico"});
+  eleventyConfig.addPassthroughCopy({"static/css": "css"});
+  eleventyConfig.addPassthroughCopy({"static/img": "img"});
+  eleventyConfig.addPassthroughCopy({"static/js": "js"});
 
   return {
     templateFormats: ["html"],
