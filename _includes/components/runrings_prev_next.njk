@@ -1,0 +1,10 @@
+<div class="category-navigation">
+<div class="page-links">
+  {%- if prevRunrings %}
+  <a href="{{ prevRunrings.url | url }}" class="page-previous" title="Go to previous page">‹ {{ prevRunrings.data.title }}</a>
+  {%- endif %}
+  {%- if nextRunrings %}
+  <a href="{{ nextRunrings.url | url }}" class="page-next" title="Go to next page">{{ nextRunrings.data.title }} ›</a>
+  {%- endif %}
+</div>
+</div>

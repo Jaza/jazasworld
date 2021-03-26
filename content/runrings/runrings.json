@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/library/writings/runrings/detail.njk",
+  "permalink": "/library/writings/running-rings/{{ title | slug }}/",
+  "tags": [
+    "runrings"
+  ]
+}
