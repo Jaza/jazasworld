@@ -5,7 +5,7 @@ layout: layouts/base.njk
 
 {{ content | safe }}
 
-{%- set writingItems = collections.writings %}
+{%- set writingItems = collections.writings | reverse %}
 
 {%- if writingItems.length %}
 
