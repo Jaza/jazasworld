@@ -2,10 +2,12 @@
 {
   layout: "layouts/base.njk",
   pagination: {
-    data: "collections.photo",
+    data: (data) => {
+      return "collections." + data.slug;
+    },
     size: 10,
     alias: "photoItems",
-    pageOnEmptyData: true,
+    pageOnEmptyData: true /*,
     before: function(data) {
       // TODO: remove once "this" is supported in "before' in eleventy
       if (!(this.data && this.data.slug)) {
@@ -16,7 +18,7 @@
       return data.filter(item => {
         return item.data.tags.includes(galleryTag);
       });
-    }
+    } */
   }
 }
 ---
