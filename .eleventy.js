@@ -67,7 +67,9 @@ module.exports = function(eleventyConfig) {
       return null;
     }
 
-    const expectedParentPageURL = pageURL.replace(/[^/]+\/$/, "");
+    const expectedParentPageURL = pageURL
+      .replace(/page\/\d+\/$/, "")
+      .replace(/[^/]+\/$/, "");
     const parentPages = collection.filter(item => {
       return item.url === expectedParentPageURL;
     });
