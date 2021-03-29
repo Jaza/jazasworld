@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+---
+<div class="submitted">{{ date | readableDateMonthYear }}.</div>
+
+<div class="content">
+
+{{ content | safe }}
+
+{%- set isrdiaryItems = collections.isrdiary %}
+
+{%- if isrdiaryItems.length %}
+<dl class="isr-toc">
+
+{%- for isrdiaryItem in isrdiaryItems %}
+{% include "components/isrdiary_teaser.njk" %}
+{%- endfor %}
+
+</dl>
+{%- else %}
+
+<p><em>No "Israel diary" items found.</em></p>
+
+{%- endif %}
+
+</div><!-- /.content -->

@@ -1,0 +1,10 @@
+<dt{% if loop.first %} class="isr-toc-top"{% endif %}>
+  <a href="{{ isrdiaryItem.url | url }}">
+    {{ isrdiaryItem.data.title }}<br />
+    {{ isrdiaryItem.date | readableDateJustDay }}<br />
+    {{ isrdiaryItem.date | readableDate }}
+  </a>
+</dt>
+<dd{% if loop.first %} class="isr-toc-top"{% endif %}>
+  {{ isrdiaryItem.data.teaser | safe }}
+</dd>

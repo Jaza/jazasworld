@@ -39,6 +39,11 @@
     {%- if runringsRegExp.test(page.url) %}
       &raquo; <a href="/library/writings/running-rings/">Running Rings</a>
     {%- endif %}
+
+    {%- set isrdiaryRegExp = r/^\/library\/writings\/israel-diary\/.+$/ %}
+    {%- if isrdiaryRegExp.test(page.url) %}
+      &raquo; <a href="/library/writings/israel-diary/">Israel diary</a>
+    {%- endif %}
   {%- endif %}
 {%- endif %}
 

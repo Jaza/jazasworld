@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+---
+<div class="submitted">{{ date | readableDateJustDay }}, {{ date | readableDate }}.</div>
+
+<div class="content">
+
+{{ content | safe }}
+
+{%- set prevIsrdiary = collections.isrdiary | getPreviousCollectionItem(page) %}
+{%- set nextIsrdiary = collections.isrdiary | getNextCollectionItem(page) %}
+
+{%- if prevIsrdiary or nextIsrdiary %}
+{% include "components/isrdiary_prev_next.njk" %}
+{%- endif %}
+
+</div><!-- /.content -->

@@ -1,0 +1,10 @@
+<div class="category-navigation">
+<div class="page-links">
+  {%- if prevIsrdiary %}
+  <a href="{{ prevIsrdiary.url | url }}" class="page-previous" title="Go to previous page">‹ {{ prevIsrdiary.data.title }}</a>
+  {%- endif %}
+  {%- if nextIsrdiary %}
+  <a href="{{ nextIsrdiary.url | url }}" class="page-next" title="Go to next page">{{ nextIsrdiary.data.title }} ›</a>
+  {%- endif %}
+</div>
+</div>

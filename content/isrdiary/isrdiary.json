@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/library/writings/isrdiary/detail.njk",
+  "permalink": "/library/writings/israel-diary/{{ title | slug }}/",
+  "tags": [
+    "isrdiary"
+  ]
+}
