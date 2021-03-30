@@ -3,10 +3,10 @@
   layout: "layouts/base.njk",
   pagination: {
     data: (data) => {
-      return "collections." + data.slug;
+      return "collections.reviewtag/" + data.page.fileSlug;
     },
     size: 10,
-    alias: "photoItems",
+    alias: "reviewItems",
     pageOnEmptyData: true
   }
 }
@@ -15,14 +15,14 @@
 
 {{ content | safe }}
 
-{%- if photoItems.length %}
+{%- if reviewItems.length %}
 
-{% include "components/gallery_detail.njk" %}
+{% include "components/review_listing.njk" %}
 
 {% include "components/pagination.njk" %}
 {%- else %}
 
-<p><em>No gallery items found.</em></p>
+<p><em>No books found.</em></p>
 
 {%- endif %}
 

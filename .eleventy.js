@@ -22,6 +22,9 @@ module.exports = function(eleventyConfig) {
     return DateTime.fromJSDate(dateObj).toFormat("LLL y");
   };
 
+  const REVIEW_TAG_PREFIX = "reviewtag/";
+  const REVIEW_TAGS_PATH = "/library/books/categories/";
+
   // Date formatting (human readable)
   eleventyConfig.addFilter("readableDate", dateObj => {
     const dayOfMonthStr = (
@@ -64,6 +67,14 @@ module.exports = function(eleventyConfig) {
     return value.slice(start, end);
   });
 
+  const getPageByUrl = (collection, pageURL) => {
+    const pages = collection.filter(item => {
+      return item.url === pageURL;
+    });
+
+    return pages.length ? pages[0] : null;
+  };
+
   // Given a page URL, find its parent page by chopping off the final
   // slash-delimited part of the URL, and finding a matching page.
   eleventyConfig.addFilter("getParentPage", (collection, pageURL) => {
@@ -74,16 +85,44 @@ module.exports = function(eleventyConfig) {
     const expectedParentPageURL = pageURL
       .replace(/page\/\d+\/$/, "")
       .replace(/[^/]+\/$/, "");
-    const parentPages = collection.filter(item => {
-      return item.url === expectedParentPageURL;
-    });
-
-    return parentPages.length ? parentPages[0] : null;
+    return getPageByUrl(collection, expectedParentPageURL);
   });
 
-  eleventyConfig.addFilter("getPhotosForGallery", (photos, galleryTag) => {
-    return photos.filter(item => {
-      return item.data.tags.includes(galleryTag);
+  eleventyConfig.addFilter("getItemsForTag", (items, tag) => {
+    return items.filter(item => {
+      return item.data.tags.includes(tag);
+    });
+  });
+
+  eleventyConfig.addFilter("getTagsForReview", (tags, collection) => {
+    if (!tags) {
+      return [];
+    }
+
+    return tags
+      .filter(tag => tag.startsWith(REVIEW_TAG_PREFIX))
+      .map(tag => tag.replace(REVIEW_TAG_PREFIX, ""))
+      .filter(tag => getPageByUrl(collection, REVIEW_TAGS_PATH + tag + "/"))
+      .map(tag => {
+        return {
+          url: REVIEW_TAGS_PATH + tag + "/",
+          title: getPageByUrl(collection, REVIEW_TAGS_PATH + tag + "/").data.title
+        };
+      });
+  });
+
+  eleventyConfig.addFilter("getAllReviewTags", (collection) => {
+    if (!collection) {
+      return [];
+    }
+
+    return collection.map(item => {
+      const tag = item.url.replace(REVIEW_TAGS_PATH, "").replace("/", "");
+      return {
+        key: REVIEW_TAG_PREFIX + tag,
+        url: item.url,
+        title: item.data.title
+      };
     });
   });
 

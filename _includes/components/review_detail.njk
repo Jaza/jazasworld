@@ -1,0 +1,20 @@
+{%- if author %}
+<p class="library-when"><em>Author:</em> {{ author }}</p>
+{%- endif %}
+
+{%- if yearPublished %}
+<p class="library-when"><em>Year published:</em> {{ yearPublished }}</p>
+{%- endif %}
+
+{%- set reviewTags = tags | getTagsForReview(collections.reviewtag) %}
+{%- if reviewTags %}
+<p class="taxonomy clear">
+  Filed in:
+{%- for tag in reviewTags %}
+  {%- if not loop.first %}
+  &#149;
+  {%- endif %}
+  <a href="{{ tag.url | url }}">{{ tag.title }}</a>
+{%- endfor %}
+</p>
+{%- endif %}

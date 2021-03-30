@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/library/reviews/detail.njk",
+  "permalink": "/library/books/{{ title | slug }}/",
+  "tags": [
+    "review"
+  ]
+}

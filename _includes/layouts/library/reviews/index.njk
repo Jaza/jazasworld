@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.review
+  size: 10
+  alias: reviewItems
+  reverse: true
+  pageOnEmptyData: true
+---
+<div class="content">
+
+{{ content | safe }}
+
+<div class="category-navigation">
+  <ul class="menu" style="padding-bottom: 1em; border-bottom: 1px solid #ccc; margin-bottom: 2em">
+    <li class="collapsed"><a href="/library/books/categories/">Categories</a></li>
+  </ul>
+</div>
+
+{%- if reviewItems.length %}
+
+{% include "components/review_listing.njk" %}
+
+{% include "components/pagination.njk" %}
+{%- else %}
+
+<p><em>No books found.</em></p>
+
+{%- endif %}
+
+</div><!-- /.content -->

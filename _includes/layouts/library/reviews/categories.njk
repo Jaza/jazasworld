@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+---
+<div class="content">
+
+{{ content | safe }}
+
+{%- set reviewTags = collections.reviewtag | getAllReviewTags %}
+{%- if reviewTags %}
+<div class="category-navigation">
+<ul class="menu">
+{%- for tag in reviewTags %}
+  <li class="leaf">
+    <a href="{{ tag.url | url }}">{{ tag.title }}</a> <span class="category-toc-node-count">({{ collections[tag.key] | length }})</span>
+  </li>
+{%- endfor %}
+</ul>
+</div><!-- /.category-navigation -->
+{%- else %}
+<p><em>No categories found.</em></p>
+{%- endif %}
+
+</div><!-- /.content -->

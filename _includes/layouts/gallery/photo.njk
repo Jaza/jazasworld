@@ -10,7 +10,7 @@ layout: layouts/base.njk
 {{ content | safe }}
 
 {%- set galleryTag = "gallery/" + gallerySlug %}
-{%- set photos = collections.photo | getPhotosForGallery(galleryTag) %}
+{%- set photos = collections.photo | getItemsForTag(galleryTag) %}
 {%- set prevPhoto = photos | getPreviousCollectionItem(page) %}
 {%- set nextPhoto = photos | getNextCollectionItem(page) %}
 

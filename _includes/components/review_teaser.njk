@@ -1,0 +1,41 @@
+<div class="node node-library-preview">
+  <p class="library-when">
+    <em>When I read it:</em> {{ reviewItem.date | readableDateMonthYear }}.
+  </p>
+
+{%- if reviewItem.data.yearPublished %}
+  <p class="library-when">
+    <em>Year published:</em> {{ reviewItem.data.yearPublished }}
+  </p>
+{%- endif %}
+
+{%- if params.uploadsBaseURL and reviewItem.data.coverImageFilepath %}
+  <p class="library-image">
+    <a href="{{ reviewItem.url | url }}"><img src="{{ params.uploadsBaseURL }}{{ reviewItem.data.coverImageFilepath }}" alt="{{ reviewItem.data.title }}" title="{{ reviewItem.data.title }}" /></a>
+  </p>
+{%- endif %}
+
+  <p class="library-title"><strong>Title:</strong> {{ reviewItem.data.title }}</p>
+
+{%- if reviewItem.data.author %}
+  <p class="library-title"><strong>Author:</strong> {{ reviewItem.data.author }}</p>
+{%- endif %}
+
+  <p class="library-read-more">
+    <strong>Read:</strong>
+    <a href="{{ reviewItem.url | url }}">Full review</a>
+  </p>
+
+{%- set reviewTags = reviewItem.data.tags | getTagsForReview(collections.reviewtag) %}
+{%- if reviewTags %}
+<p class="taxonomy clear">
+  Filed in:
+{%- for tag in reviewTags %}
+  {%- if not loop.first %}
+  &#149;
+  {%- endif %}
+  <a href="{{ tag.url | url }}">{{ tag.title }}</a>
+{%- endfor %}
+</p>
+{%- endif %}
+</div><!-- /.node-library-preview -->

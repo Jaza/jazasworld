@@ -45,6 +45,16 @@
       &raquo; <a href="/library/writings/israel-diary/">Israel diary</a>
     {%- endif %}
   {%- endif %}
+
+  {%- set booksRegExp = r/^\/library\/books\/.+$/ %}
+  {%- if booksRegExp.test(page.url) %}
+    &raquo; <a href="/library/books/">Books</a>
+
+    {%- set bookCategoriesRegExp = r/^\/library\/books\/categories\/.+$/ %}
+    {%- if bookCategoriesRegExp.test(page.url) %}
+      &raquo; <a href="/library/books/categories/">Categories</a>
+    {%- endif %}
+  {%- endif %}
 {%- endif %}
 
 {#
