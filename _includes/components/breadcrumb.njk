@@ -47,7 +47,8 @@
   {%- endif %}
 
   {%- set booksRegExp = r/^\/library\/books\/.+$/ %}
-  {%- if booksRegExp.test(page.url) %}
+  {%- set booksPagedRegExp = r/^\/library\/books\/page\/\d+\/$/ %}
+  {%- if booksRegExp.test(page.url) and not booksPagedRegExp.test(page.url) %}
     &raquo; <a href="/library/books/">Books</a>
 
     {%- set bookCategoriesRegExp = r/^\/library\/books\/categories\/.+$/ %}

@@ -1,6 +1,6 @@
 ---
 layout: layouts/library/reviews/index.njk
 title: Books
-permalink: /library/books/
+permalink: /library/books/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}
 ---
 <p>The Jaza's World books archives.</p>
