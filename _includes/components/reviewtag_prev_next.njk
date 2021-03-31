@@ -1,0 +1,11 @@
+<div class="category-navigation">
+<div class="page-links">
+  {%- if prevReviewTag %}
+  <a href="{{ prevReviewTag.url | url }}" class="page-previous" title="Go to previous page">‹ {{ prevReviewTag.data.title }}</a>
+  {%- endif %}
+  {%- if nextReviewTag %}
+  <a href="{{ nextReviewTag.url | url }}" class="page-next" title="Go to next page">{{ nextReviewTag.data.title }} ›</a>
+  {%- endif %}
+  <br class="clear" />
+</div>
+</div>

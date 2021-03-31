@@ -17,7 +17,7 @@ layout: layouts/base.njk
 
 {{ bestWritingTitle | safe }}
 
-{%- set writingItems = collections.bestwriting | reverse %}
+{%- set writingItems = collections.bestwriting %}
 {%- if writingItems.length %}
   {%- set writingItem = writingItems | first %}
 {% include "components/writing_teaser.njk" %}
@@ -29,11 +29,23 @@ layout: layouts/base.njk
 
 {{ recentBookTitle | safe }}
 
-(recent book here)
+{%- set reviewItems = collections.review | reverse %}
+{%- if reviewItems.length %}
+  {%- set reviewItem = reviewItems | first %}
+{% include "components/review_teaser.njk" %}
+{%- else %}
+<p><em>No books found.</em></p>
+{%- endif %}
 
 {{ bestBookTitle | safe }}
 
-(best book here)
+{%- set reviewItems = collections.bestreview %}
+{%- if reviewItems.length %}
+  {%- set reviewItem = reviewItems | first %}
+{% include "components/review_teaser.njk" %}
+{%- else %}
+<p><em>No books found.</em></p>
+{%- endif %}
 
 {{ booksNote | safe }}
 

@@ -6,6 +6,7 @@
       return "collections.reviewtag/" + data.page.fileSlug;
     },
     size: 10,
+    reverse: true,
     alias: "reviewItems",
     pageOnEmptyData: true
   }
@@ -24,6 +25,13 @@
 
 <p><em>No books found.</em></p>
 
+{%- endif %}
+
+{%- set prevReviewTag = collections.reviewtag | getPreviousCollectionItem(page) %}
+{%- set nextReviewTag = collections.reviewtag | getNextCollectionItem(page) %}
+
+{%- if prevReviewTag or nextReviewTag %}
+{% include "components/reviewtag_prev_next.njk" %}
 {%- endif %}
 
 </div><!-- /.content -->
