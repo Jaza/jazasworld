@@ -1,0 +1,31 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.game
+  size: 10
+  alias: gameItems
+  reverse: true
+  pageOnEmptyData: true
+---
+<div class="content">
+
+{{ content | safe }}
+
+<div class="category-navigation">
+  <ul class="menu" style="padding-bottom: 1em; border-bottom: 1px solid #ccc; margin-bottom: 2em">
+    <li class="collapsed"><a href="/interests/games/categories/">Categories</a></li>
+  </ul>
+</div>
+
+{%- if gameItems.length %}
+
+{% include "components/game_listing.njk" %}
+
+{% include "components/pagination.njk" %}
+{%- else %}
+
+<p><em>No games found.</em></p>
+
+{%- endif %}
+
+</div><!-- /.content -->

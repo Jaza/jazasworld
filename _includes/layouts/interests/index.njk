@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+---
+<div class="content">
+
+{{ content | safe }}
+
+{{ gamesBlurb | safe }}
+
+{{ recentGameTitle | safe }}
+
+{%- set gameItems = collections.game | reverse %}
+{%- if gameItems.length %}
+  {%- set gameItem = gameItems | first %}
+{% include "components/game_teaser.njk" %}
+{%- else %}
+<p><em>No games found.</em></p>
+{%- endif %}
+
+{{ bestGameTitle | safe }}
+
+{%- set gameItems = collections.bestgame %}
+{%- if gameItems.length %}
+  {%- set gameItem = gameItems | first %}
+{% include "components/game_teaser.njk" %}
+{%- else %}
+<p><em>No games found.</em></p>
+{%- endif %}
+
+{{ gamesNote | safe }}
+
+</div><!-- /.content -->

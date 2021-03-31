@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/interests/games/detail.njk",
+  "permalink": "/interests/games/{{ title | slug }}/",
+  "tags": [
+    "game"
+  ]
+}

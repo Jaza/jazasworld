@@ -1,0 +1,20 @@
+{%- if author %}
+<p class="library-when"><em>Author:</em> {{ author }}</p>
+{%- endif %}
+
+{%- if yearPublished %}
+<p class="library-when"><em>Year released:</em> {{ yearPublished }}</p>
+{%- endif %}
+
+{%- set gameTags = tags | getTagsForGame(collections.gametag) %}
+{%- if gameTags %}
+<p class="taxonomy clear">
+  Filed in:
+{%- for tag in gameTags %}
+  {%- if not loop.first %}
+  &#149;
+  {%- endif %}
+  <a href="{{ tag.url | url }}">{{ tag.title }}</a>
+{%- endfor %}
+</p>
+{%- endif %}

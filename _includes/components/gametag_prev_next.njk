@@ -1,0 +1,11 @@
+<div class="category-navigation">
+<div class="page-links">
+  {%- if prevGameTag %}
+  <a href="{{ prevGameTag.url | url }}" class="page-previous" title="Go to previous page">‹ {{ prevGameTag.data.title }}</a>
+  {%- endif %}
+  {%- if nextGameTag %}
+  <a href="{{ nextGameTag.url | url }}" class="page-next" title="Go to next page">{{ nextGameTag.data.title }} ›</a>
+  {%- endif %}
+  <br class="clear" />
+</div>
+</div>

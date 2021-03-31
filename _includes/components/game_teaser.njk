@@ -1,0 +1,41 @@
+<div class="node node-library-preview">
+  <p class="library-when">
+    <em>When I played it:</em> {{ gameItem.date | readableDateMonthYear }}.
+  </p>
+
+{%- if gameItem.data.yearPublished %}
+  <p class="library-when">
+    <em>Year released:</em> {{ gameItem.data.yearPublished }}
+  </p>
+{%- endif %}
+
+{%- if params.uploadsBaseURL and gameItem.data.coverImageFilepath %}
+  <p class="library-image">
+    <a href="{{ gameItem.url | url }}"><img src="{{ params.uploadsBaseURL }}{{ gameItem.data.coverImageFilepath }}" alt="{{ gameItem.data.title }}" title="{{ gameItem.data.title }}" /></a>
+  </p>
+{%- endif %}
+
+  <p class="library-title"><strong>Title:</strong> {{ gameItem.data.title }}</p>
+
+{%- if gameItem.data.author %}
+  <p class="library-title"><strong>Author:</strong> {{ gameItem.data.author }}</p>
+{%- endif %}
+
+  <p class="library-read-more">
+    <strong>Read:</strong>
+    <a href="{{ gameItem.url | url }}">Full review</a>
+  </p>
+
+{%- set gameTags = gameItem.data.tags | getTagsForGame(collections.gametag) %}
+{%- if gameTags %}
+<p class="taxonomy clear">
+  Filed in:
+{%- for tag in gameTags %}
+  {%- if not loop.first %}
+  &#149;
+  {%- endif %}
+  <a href="{{ tag.url | url }}">{{ tag.title }}</a>
+{%- endfor %}
+</p>
+{%- endif %}
+</div><!-- /.node-library-preview -->

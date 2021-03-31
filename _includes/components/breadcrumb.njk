@@ -7,6 +7,7 @@
 {%- set newsRegExp = r/^\/news\/[^\/]+\/$/ %}
 {%- set galleryRegExp = r/^\/gallery\/[^\/]+\/.*$/ %}
 {%- set libraryRegExp = r/^\/library\/[^\/]+\/.*$/ %}
+{%- set interestsRegExp = r/^\/interests\/[^\/]+\/.*$/ %}
 
 {%- if newsRegExp.test(page.url) %}
   &raquo; <a href="/news/">News</a>
@@ -56,29 +57,22 @@
       &raquo; <a href="/library/books/categories/">Categories</a>
     {%- endif %}
   {%- endif %}
+{%- elif interestsRegExp.test(page.url) %}
+  &raquo; <a href="/interests/">Interests</a>
+
+  {%- set gamesRegExp = r/^\/interests\/games\/.+$/ %}
+  {%- set gamesPagedRegExp = r/^\/interests\/games\/page\/\d+\/$/ %}
+  {%- if gamesRegExp.test(page.url) and not gamesPagedRegExp.test(page.url) %}
+    &raquo; <a href="/interests/games/">Games</a>
+
+    {%- set gameCategoriesRegExp = r/^\/interests\/games\/categories\/.+$/ %}
+    {%- if gameCategoriesRegExp.test(page.url) %}
+      &raquo; <a href="/interests/games/categories/">Categories</a>
+    {%- endif %}
+  {%- endif %}
 {%- endif %}
 
 {#
-<?php elseif (in_array($content_type, array('writing', 'runrings', 'isrdiary'))): ?>
-  &raquo; <a href="/library/">Library</a>
-  &raquo; <a href="/library/writings/">Writings</a>
-  <?php if ($content_type == 'runrings'): ?>
-  &raquo; <a href="/library/writings/running-rings/">Running Rings</a>
-  <?php elseif ($content_type == 'isrdiary'): ?>
-  &raquo; <a href="/library/writings/israel-diary/">Israel Diary</a>
-  <?php endif; ?>
-<?php elseif (in_array($content_type, array('review', 'reviewtag'))): ?>
-  &raquo; <a href="/library/">Library</a>
-  &raquo; <a href="/library/books/">Books</a>
-  <?php if ($content_type == 'reviewtag'): ?>
-  &raquo; <a href="/library/books/categories/">Categories</a>
-  <?php endif; ?>
-<?php elseif (in_array($content_type, array('game', 'gametag'))): ?>
-  &raquo; <a href="/interests/">Interests</a>
-  &raquo; <a href="/interests/games/">Games</a>
-  <?php if ($content_type == 'gametag'): ?>
-  &raquo; <a href="/interests/games/categories/">Categories</a>
-  <?php endif; ?>
 <?php elseif ($content_type == 'gbook'): ?>
   &raquo; <a href="/guestbook/">Guestbook</a>
   &raquo; <a href="/guestbook/entries/">Entries</a>

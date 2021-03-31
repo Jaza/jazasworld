@@ -1,0 +1,37 @@
+---js
+{
+  layout: "layouts/base.njk",
+  pagination: {
+    data: (data) => {
+      return "collections.gametag/" + data.page.fileSlug;
+    },
+    size: 10,
+    reverse: true,
+    alias: "gameItems",
+    pageOnEmptyData: true
+  }
+}
+---
+<div class="content">
+
+{{ content | safe }}
+
+{%- if gameItems.length %}
+
+{% include "components/game_listing.njk" %}
+
+{% include "components/pagination.njk" %}
+{%- else %}
+
+<p><em>No games found.</em></p>
+
+{%- endif %}
+
+{%- set prevGameTag = collections.gametag | getPreviousCollectionItem(page) %}
+{%- set nextGameTag = collections.gametag | getNextCollectionItem(page) %}
+
+{%- if prevGameTag or nextGameTag %}
+{% include "components/gametag_prev_next.njk" %}
+{%- endif %}
+
+</div><!-- /.content -->

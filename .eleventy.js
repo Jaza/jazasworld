@@ -25,6 +25,9 @@ module.exports = function(eleventyConfig) {
   const REVIEW_TAG_PREFIX = "reviewtag/";
   const REVIEW_TAGS_PATH = "/library/books/categories/";
 
+  const GAME_TAG_PREFIX = "gametag/";
+  const GAME_TAGS_PATH = "/interests/games/categories/";
+
   // Date formatting (human readable)
   eleventyConfig.addFilter("readableDate", dateObj => {
     const dayOfMonthStr = (
@@ -111,6 +114,23 @@ module.exports = function(eleventyConfig) {
       });
   });
 
+  eleventyConfig.addFilter("getTagsForGame", (tags, collection) => {
+    if (!tags) {
+      return [];
+    }
+
+    return tags
+      .filter(tag => tag.startsWith(GAME_TAG_PREFIX))
+      .map(tag => tag.replace(GAME_TAG_PREFIX, ""))
+      .filter(tag => getPageByUrl(collection, GAME_TAGS_PATH + tag + "/"))
+      .map(tag => {
+        return {
+          url: GAME_TAGS_PATH + tag + "/",
+          title: getPageByUrl(collection, GAME_TAGS_PATH + tag + "/").data.title
+        };
+      });
+  });
+
   eleventyConfig.addFilter("getAllReviewTags", (collection) => {
     if (!collection) {
       return [];
@@ -120,6 +140,21 @@ module.exports = function(eleventyConfig) {
       const tag = item.url.replace(REVIEW_TAGS_PATH, "").replace("/", "");
       return {
         key: REVIEW_TAG_PREFIX + tag,
+        url: item.url,
+        title: item.data.title
+      };
+    });
+  });
+
+  eleventyConfig.addFilter("getAllGameTags", (collection) => {
+    if (!collection) {
+      return [];
+    }
+
+    return collection.map(item => {
+      const tag = item.url.replace(GAME_TAGS_PATH, "").replace("/", "");
+      return {
+        key: GAME_TAG_PREFIX + tag,
         url: item.url,
         title: item.data.title
       };
