@@ -22,8 +22,9 @@
     "url": "https://github.com/Jaza/jazasworld/issues"
   },
   "homepage": "https://github.com/Jaza/jazasworld",
+  "//": "Note: change eleventy back to an official stable version once the pagination data key func stuff gets merged",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy": "github:Jaza/eleventy#pagination-data-key-func",
     "luxon": "^1.26.0"
   },
   "dependencies": {
