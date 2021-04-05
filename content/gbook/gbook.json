@@ -1,0 +1,65 @@
+{
+  "layout": "layouts/gbook/detail.njk",
+  "permalink": "/guestbook/entries/{{ date | dateYMD }}/{{ title | slug }}/",
+  "tags": [
+    "gbook"
+  ],
+  "gbookFieldKeys": [
+    {
+      "key": "age",
+      "label": "Age"
+    },
+    {
+      "key": "gender",
+      "label": "Gender"
+    },
+    {
+      "key": "nickname",
+      "label": "Nickname"
+    },
+    {
+      "key": "homePage",
+      "label": "Home page"
+    },
+    {
+      "key": "city",
+      "label": "City"
+    },
+    {
+      "key": "country",
+      "label": "Country"
+    },
+    {
+      "key": "religion",
+      "label": "Religion"
+    },
+    {
+      "key": "hobbies",
+      "label": "Hobbies"
+    },
+    {
+      "key": "favouriteQuote",
+      "label": "Favourite quote"
+    },
+    {
+      "key": "starSign",
+      "label": "Star sign"
+    },
+    {
+      "key": "height",
+      "label": "Height"
+    },
+    {
+      "key": "eyeColour",
+      "label": "Eye colour"
+    },
+    {
+      "key": "hairColour",
+      "label": "Hair colour"
+    },
+    {
+      "key": "thinkLotrRules",
+      "label": "Think 'Lord of the Rings' rules"
+    }
+  ]
+}

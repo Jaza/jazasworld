@@ -1,0 +1,24 @@
+<div class="node">
+
+<span class="submitted">{{ gbookItem.date | readableDate }}</span>
+
+<p class="library=title"><strong>Name:</strong> {{ gbookItem.data.title }}</p>
+
+{%- for field in gbookItem.data.gbookFieldKeys %}
+{%- if gbookItem.data[field.key] %}
+<p class="library-title">
+  <strong>{{ field.label }}:</strong>
+  {{ gbookItem.data[field.key] }}
+</p>
+{%- endif %}
+{%- endfor %}
+
+<p class="library-title"><strong>Comments:</strong></p>
+
+{{ gbookItem.templateContent | safe }}
+
+<p class="library-when">[<a href="{{ gbookItem.url | url }}">Permalink</a>]</p>
+
+<hr />
+
+</div>

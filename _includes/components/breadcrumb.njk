@@ -8,6 +8,7 @@
 {%- set galleryRegExp = r/^\/gallery\/[^\/]+\/.*$/ %}
 {%- set libraryRegExp = r/^\/library\/[^\/]+\/.*$/ %}
 {%- set interestsRegExp = r/^\/interests\/[^\/]+\/.*$/ %}
+{%- set gbookRegExp = r/^\/guestbook\/[^\/]+\/.*$/ %}
 
 {%- if newsRegExp.test(page.url) %}
   &raquo; <a href="/news/">News</a>
@@ -70,31 +71,15 @@
       &raquo; <a href="/interests/games/categories/">Categories</a>
     {%- endif %}
   {%- endif %}
-{%- endif %}
+{%- elif gbookRegExp.test(page.url) %}
+  &raquo; <a href="/guestbook/">Guestbook</a>
 
-{#
-<?php elseif ($content_type == 'gbook'): ?>
-  &raquo; <a href="/guestbook/">Guestbook</a>
-  &raquo; <a href="/guestbook/entries/">Entries</a>
-<?php elseif ($content_type == 'page'): ?>
-  <?php if (Q == 'gallery/trip-to-israel-2003-2004/whose-feet'): ?>
-  &raquo; <a href="/gallery/">Gallery</a>
-  &raquo; <a href="/gallery/trip-to-israel-2003-2004/">Trip to Israel, 2003/2004</a>
-  <?php elseif (in_array(Q, array('library/writings', 'library/books', 'library/books/categories'))): ?>
-  &raquo; <a href="/library/">Library</a>
-  <?php if (Q == 'library/books/categories'): ?>
-  &raquo; <a href="/library/books/">Books</a>
-  <?php endif; ?>
-  <?php elseif (in_array(Q, array('interests/games', 'interests/games/categories'))): ?>
-  &raquo; <a href="/interests/">Interests</a>
-  <?php if (Q == 'interests/games/categories'): ?>
-  &raquo; <a href="/interests/games/">Games</a>
-  <?php endif; ?>
-  <?php elseif (in_array(Q, array('guestbook/add-entry', 'guestbook/entries'))): ?>
-  &raquo; <a href="/guestbook/">Guestbook</a>
-  <?php endif; ?>
-<?php endif; ?>
-#}
+  {%- set gbookEntriesRegExp = r/^\/guestbook\/entries\/.+$/ %}
+  {%- set gbookEntriesPagedRegExp = r/^\/guestbook\/entries\/page\/\d+\/$/ %}
+  {%- if gbookEntriesRegExp.test(page.url) and not gbookEntriesPagedRegExp.test(page.url) %}
+    &raquo; <a href="/guestbook/entries/">Entries</a>
+  {%- endif %}
+{%- endif %}
 
 </div><!-- /.breadcrumb -->
 

@@ -1,0 +1,14 @@
+<p class="library=title"><strong>Name:</strong> {{ title }}</p>
+
+{%- set ctx = getContext() %}
+
+{%- for field in gbookFieldKeys %}
+{%- if ctx[field.key] %}
+<p class="library-title">
+  <strong>{{ field.label }}:</strong>
+  {{ ctx[field.key] }}
+</p>
+{%- endif %}
+{%- endfor %}
+
+<p class="library-title"><strong>Comments:</strong></p>

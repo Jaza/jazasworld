@@ -1,7 +1,20 @@
 const { DateTime } = require("luxon");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const Nunjucks = require("nunjucks");
 
 module.exports = function(eleventyConfig) {
+  const nunjucksEnvironment = new Nunjucks.Environment(
+    new Nunjucks.FileSystemLoader("_includes")
+  );
+
+  // Lets us access template variables dynamically in Nunjucks, via
+  // {{ getContext()["someVar"] }}
+  nunjucksEnvironment.addGlobal('getContext', function() {
+    return this.ctx;
+  });
+
+  eleventyConfig.setLibrary("njk", nunjucksEnvironment);
+
   // Eleventy Navigation https://www.11ty.dev/docs/plugins/navigation/
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
@@ -62,6 +75,10 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("readableDateJustDay", dateObj => {
     return DateTime.fromJSDate(dateObj).toFormat("cccc");
+  });
+
+  eleventyConfig.addFilter("dateYMD", dateObj => {
+    return DateTime.fromJSDate(dateObj).toFormat("yyyy/LL/dd");
   });
 
   // Needed because the nunjucks built-in slice filter is actually a chunker, but we

@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.gbook
+  size: 10
+  alias: gbookItems
+  reverse: true
+  pageOnEmptyData: true
+---
+<div class="content">
+
+{{ content | safe }}
+
+{%- if gbookItems.length %}
+
+{% include "components/gbook_listing.njk" %}
+
+{% include "components/pagination.njk" %}
+{%- else %}
+
+<p><em>No guestbook entries found.</em></p>
+
+{%- endif %}
+
+</div><!-- /.content -->
